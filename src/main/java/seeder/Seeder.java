@@ -24,13 +24,13 @@ public class Seeder {
     
     public void executar(){
     
-        Categoria educacao = new Categoria("Educacao", 25.0);
-        Categoria alimentacao = new Categoria("Alimentacao", 22.0);
-        Categoria papelaria = new Categoria("papelaria", 30.0);
+        Categoria educacao = new Categoria("Educação", 25.0);
+        Categoria alimentacao = new Categoria("Alimentação", 22.0);
+        Categoria papelaria = new Categoria("Papelaria", 30.0);
         Categoria lazer = new Categoria("lazer", 35.0);
-        Categoria entretenimento = new Categoria("entretenimento", 40.0);
-        Categoria higiene = new Categoria("higiene", 28.0);
-        Categoria limpeza = new Categoria("limpeza", 25.0);
+        Categoria entretenimento = new Categoria("Entretenimento", 40.0);
+        Categoria higiene = new Categoria("Higiene", 28.0);
+        Categoria limpeza = new Categoria("Limpeza", 25.0);
         
         categoriaService.incluirCategoriaService(educacao);
         categoriaService.incluirCategoriaService(alimentacao);
