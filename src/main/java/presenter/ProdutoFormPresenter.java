@@ -14,7 +14,7 @@ public class ProdutoFormPresenter {
     private final ProdutoFormView view;
     private final ProdutoService produtoService;
     private final CategoriaService categoriaService;
-    private final Produto produto;   // null = inclusão; preenchido = edição
+    private final Produto produto;   
 
     public ProdutoFormPresenter(Window parent, ProdutoService produtoService,
                                 CategoriaService categoriaService, Produto produto) {
@@ -26,24 +26,23 @@ public class ProdutoFormPresenter {
         carregarCategorias();
 
         if (produto == null) {
-            view.getCboCategoria().setSelectedIndex(-1);   // inclusão: combo sem seleção (7.1, item 1)
+            view.getCboCategoria().setSelectedIndex(-1);   
         } else {
-            preencherCampos();                             // edição: dados atuais (7.2, item 1)
+            preencherCampos();                            
         }
 
         view.getBtnSalvar().addActionListener(e -> salvar());
-        view.getBtnCancelar().addActionListener(e -> view.dispose());   // descarta e volta
+        view.getBtnCancelar().addActionListener(e -> view.dispose());   
 
-        view.setLocationRelativeTo(parent);   // abre centralizada sobre a janela de trás
-        view.setVisible(true);                // modal: SEMPRE por último
+        view.setLocationRelativeTo(parent);   
+        view.setVisible(true);                
     }
 
-    // Seção 3: a lista vem do repositório, nunca fixa na tela
     private void carregarCategorias() {
         JComboBox<Categoria> combo = view.getCboCategoria();
         combo.removeAllItems();
         for (Categoria c : categoriaService.exibirCategoriasService()) {
-            combo.addItem(c);   // guarda o OBJETO; mostra o nome pelo toString()
+            combo.addItem(c);  
         }
     }
 
@@ -67,20 +66,17 @@ public class ProdutoFormPresenter {
                 produtoService.editarProduto(produto, nome, precoCusto, categoria);
             }
 
-            // Figura 8: "Item salvo com sucesso!" e a tela fecha
             JOptionPane.showMessageDialog(view, "Item salvo com sucesso!",
                     "Sucesso", JOptionPane.INFORMATION_MESSAGE);
             view.dispose();
 
         } catch (IllegalArgumentException e) {
-            // A tela continua aberta, com o que o usuário digitou, para ele corrigir
             JOptionPane.showMessageDialog(view, e.getMessage(),
                     "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Converte o texto digitado em número.
-    // Campo vazio vira null, e o service responde "obrigatório" (regra 13.2).
+   
     private Double lerPreco(String texto) {
         if (texto == null || texto.isBlank()) {
             return null;

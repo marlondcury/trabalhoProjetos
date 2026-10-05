@@ -73,7 +73,6 @@ public class BuscarProdutosView extends javax.swing.JDialog {
         jLabel1.setText("Busca por:");
 
         cboBuscaPor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nome do produto", "Categoria" }));
-        cboBuscaPor.addActionListener(this::cboBuscaPorActionPerformed);
 
         btnBuscar.setText("Buscar");
 
@@ -163,10 +162,6 @@ public class BuscarProdutosView extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void cboBuscaPorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cboBuscaPorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cboBuscaPorActionPerformed
 
 
 

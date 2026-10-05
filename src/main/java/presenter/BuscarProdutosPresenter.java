@@ -79,7 +79,6 @@ view.getBtnVisualizar().addActionListener(e -> visualizar());
         Produto selecionado = produtosExibidos.get(linha);
         new ProdutoVisualizacaoPresenter(view, produtoService, categoriaService, historicoService, selecionado);
 
-        System.out.println("Visualizar: " + selecionado.getNome());
     }
 
     private String formatar(Double valor) {
