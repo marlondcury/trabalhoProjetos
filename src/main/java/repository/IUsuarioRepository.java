@@ -2,6 +2,7 @@
 package repository;
 
 import java.util.List;
+import model.Cliente;
 import model.Usuario;
 
 public interface IUsuarioRepository {
@@ -19,6 +20,7 @@ public interface IUsuarioRepository {
     
     public Usuario buscarNomeUsuario(String nome);
     public Usuario buscarLoginUsuario(String nome);
+    public boolean existeUsuarioComCliente(Cliente cliente);
 
     
     
